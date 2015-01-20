@@ -37,6 +37,11 @@ namespace Project_X {
 
                     SqlCommand cmd = new SqlCommand(query, con);
 
+                    cmd.Parameters.AddWithValue("@personName", nameBox);
+                    cmd.Parameters.AddWithValue("@cprPerson", cprBox);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    
                 }
             }
             catch (Exception ex)
