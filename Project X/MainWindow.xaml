@@ -8,6 +8,7 @@
         <TextBox Name="nameBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="165,42,0,0" TextChanged="nameBox_TextChanged"/>
         <TextBox Name="cprBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="165,88,0,0" TextChanged="cprBox_TextChanged"/>
         <Button Name="saveButton" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="92,166,0,0" Click="saveButton_Click"/>
+        <Button Name="tilføjSensor" Content="Tilføj Sensor" HorizontalAlignment="Left" Margin="92,213,0,0" VerticalAlignment="Top" Width="75" Click="tilføjSensor_Click"/>
 
     </Grid>
 </Window>

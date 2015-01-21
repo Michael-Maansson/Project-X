@@ -40,6 +40,30 @@ namespace Project_X
             
 
         }
+        public void tilføjSensor(string inputSensorID, string inputCPRNR, string inputModel, DateTime inputBatteryLastCharged)
+        {
+            string connectionString = "Server=ealdb1.eal.local; User ID=ejl15_usr; Password=Baz1nga15; Database=EJL15_DB";
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                SqlCommand tilføjSensor = new SqlCommand("SetSensor", conn);
+                tilføjSensor.CommandType = System.Data.CommandType.StoredProcedure;
+
+                tilføjSensor.Parameters.Add(new SqlParameter("@SensorID", inputSensorID));
+                tilføjSensor.Parameters.Add(new SqlParameter("@Model", inputModel));
+                tilføjSensor.Parameters.Add(new SqlParameter("@CPRNR", inputCPRNR));
+                tilføjSensor.Parameters.Add(new SqlParameter("@BatteryLastChanged", inputBatteryLastCharged));
+
+            }
+            catch (Exception)
+            {
+
+            }
+            finally
+            {
+
+            }
+        }
 
 
     }
