@@ -39,7 +39,7 @@ namespace Project_X {
 
         private void SaveSensor_Click(object sender, RoutedEventArgs e) {
             Controller controller = new Controller();
-            controller.tilføjSensor(SensorID.Text, Model.Text, CprNr.Text, Convert.ToDateTime(BatteryLastChanged.Text));
+            controller.tilføjSensor(SensorID.Text, CprNr.Text, Model.Text, Convert.ToDateTime(BatteryLastChanged.Text));
             MessageBox.Show("Sensor Tilføjet");
             Close(); 
         }
