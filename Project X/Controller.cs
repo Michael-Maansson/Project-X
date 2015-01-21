@@ -66,7 +66,46 @@ namespace Project_X
 
             }
         }
+        //public List<Battery> hentBatteryTime = new List<Battery>();
+
+        public List<_Sensor> hentBatteryTime()
+        {
+            List<_Sensor> hentBatteryTime = new List<_Sensor>();
+            _Sensor hentBattery = new _Sensor();
 
 
+            string connectionString = "Server=ealdb1.eal.local; User ID=ejl15_usr; Password=Baz1nga15; Database=EJL15_DB";
+            try
+            {
+             
+                SqlConnection conn = new SqlConnection(connectionString);
+                SqlCommand cmd = new SqlCommand("GetSensorFromSensorID", conn);
+                cmd.Parameters.Add(new SqlParameter("@SensorID",""));
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlDataReader sdr = cmd.ExecuteReader();
+
+                while (sdr.Read())
+                {
+                    hentBattery.batteryLastChanged = Convert.ToDateTime(sdr["BatteryLastChanged"]);
+                    hentBatteryTime.Add(hentBattery);
+                }
+                
+            }
+            catch (SqlException)
+            {
+
+            }
+            finally
+            {
+            }
+
+            return hentBatteryTime;
+                
+            }
+        }
+
+                
+
+        
     }
 }
