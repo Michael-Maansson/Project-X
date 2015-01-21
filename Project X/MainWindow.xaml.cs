@@ -42,8 +42,8 @@ namespace Project_X {
 
         private void tilføjSensor_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-            new
+            //this.Close();
+            new Sensor().Show();
         }
     }
 }

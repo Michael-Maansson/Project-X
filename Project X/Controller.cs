@@ -54,6 +54,8 @@ namespace Project_X
                 tilføjSensor.Parameters.Add(new SqlParameter("@CPRNR", inputCPRNR));
                 tilføjSensor.Parameters.Add(new SqlParameter("@BatteryLastChanged", inputBatteryLastCharged));
 
+                conn.Open();
+                tilføjSensor.ExecuteNonQuery();
             }
             catch (Exception)
             {
