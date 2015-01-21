@@ -50,8 +50,8 @@ namespace Project_X
                 tilføjSensor.CommandType = System.Data.CommandType.StoredProcedure;
 
                 tilføjSensor.Parameters.Add(new SqlParameter("@SensorID", inputSensorID));
-                tilføjSensor.Parameters.Add(new SqlParameter("@Model", inputModel));
                 tilføjSensor.Parameters.Add(new SqlParameter("@CPRNR", inputCPRNR));
+                tilføjSensor.Parameters.Add(new SqlParameter("@Model", inputModel));
                 tilføjSensor.Parameters.Add(new SqlParameter("@BatteryLastChanged", inputBatteryLastCharged));
 
                 conn.Open();
