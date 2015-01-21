@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace Project_X {
     class Person {
 
-        public string CprNr;
-        public string Name;
+        public string CprNr { get; set; }
+        public string Name { get; set; }
     }
     
 }

@@ -25,29 +25,19 @@ namespace Project_X {
 
         public void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "Server=ealdb1.eal.local; User ID=ejl15_usr; Password=Baz1nga15; Database=EJL15_DB";
-            try
-            {
-                using (SqlConnection con = new SqlConnection(connectionString))
-                {
-                    con.Open();
+            Controller controller = new Controller();
+            controller.tilføjPerson(cprBox.Text, nameBox.Text);
+            MessageBox.Show("Person tilføjet");
+        }
 
-                    string query =
-                    "UPDATE aspnet_PersonalInformation Set P_Name=@personName, P_CPRNR=@cprPerson";
+        private void nameBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
-                    SqlCommand cmd = new SqlCommand(query, con);
+        }
 
-                    cmd.Parameters.AddWithValue("@personName", nameBox);
-                    cmd.Parameters.AddWithValue("@cprPerson", cprBox);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    
-                }
-            }
-            catch (Exception ex)
-            {
-                
-            }
+        private void cprBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
