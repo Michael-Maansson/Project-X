@@ -12,5 +12,7 @@ namespace Project_X
         public string sensorID { get; set; }
         public string CPRNR { get; set; }
         public string model { get; set; }
+
+        public List<_Sensor> returnBatteryTime = new List<_Sensor>();
     }
 }

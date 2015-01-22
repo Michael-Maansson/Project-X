@@ -8,6 +8,8 @@ namespace Project_X
 {
     class Controller
     {
+        //public List<_Sensor> sensorList = new List<_Sensor>();
+
         public void tilføjPerson(string inputCPRNR, string inputName)
         {
             string connectionString = "Server=ealdb1.eal.local; User ID=ejl15_usr; Password=Baz1nga15; Database=EJL15_DB";
@@ -70,24 +72,34 @@ namespace Project_X
 
         public List<_Sensor> hentBatteryTime()
         {
-            List<_Sensor> hentBatteryTime = new List<_Sensor>();
+            List<_Sensor> returnBatteryTime = new List<_Sensor>();
             _Sensor hentBattery = new _Sensor();
 
 
             string connectionString = "Server=ealdb1.eal.local; User ID=ejl15_usr; Password=Baz1nga15; Database=EJL15_DB";
             try
             {
-             
+                
                 SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
                 SqlCommand cmd = new SqlCommand("GetSensorFromSensorID", conn);
-                cmd.Parameters.Add(new SqlParameter("@SensorID",""));
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@SensorID",""));
+                //cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                
                 SqlDataReader sdr = cmd.ExecuteReader();
+                
+                
+
+
 
                 while (sdr.Read())
                 {
-                    hentBattery.batteryLastChanged = Convert.ToDateTime(sdr["BatteryLastChanged"]);
-                    hentBatteryTime.Add(hentBattery);
+                    hentBattery.sensorID = sdr["S_SensorID"].ToString();
+                    hentBattery.CPRNR = sdr["S_P_CPRNR"].ToString();
+                    hentBattery.model = sdr["S_Model"].ToString(); 
+                    hentBattery.batteryLastChanged = Convert.ToDateTime(sdr ["S_BatteryLastChanged"]);                   
+                    returnBatteryTime.Add(hentBattery);
                 }
                 
             }
@@ -99,7 +111,7 @@ namespace Project_X
             {
             }
 
-            return hentBatteryTime;
+            return returnBatteryTime;
                 
             }
         }

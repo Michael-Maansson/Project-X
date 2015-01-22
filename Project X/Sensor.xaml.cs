@@ -12,55 +12,65 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Project_X {
+namespace Project_X
+{
     /// <summary>
     /// Interaction logic for Sensor.xaml
     /// </summary>
-    public partial class Sensor : Window {
-        public Sensor() {
+    public partial class Sensor : Window
+    {
+        public Sensor()
+        {
             InitializeComponent();
         }
 
-        private void Model_TextChanged(object sender, TextChangedEventArgs e) {
+        private void Model_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
         }
 
-        private void SensorID_TextChanged(object sender, TextChangedEventArgs e) {
+        private void SensorID_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
         }
 
-        private void CprNr_TextChanged(object sender, TextChangedEventArgs e) {
+        private void CprNr_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
         }
 
-        private void BatteryLastChanged_TextChanged(object sender, TextChangedEventArgs e) {
+        private void BatteryLastChanged_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
         }
 
-        private void SaveSensor_Click(object sender, RoutedEventArgs e) {
+        private void SaveSensor_Click(object sender, RoutedEventArgs e)
+        {
             Controller controller = new Controller();
             controller.tilføjSensor(SensorID.Text, CprNr.Text, Model.Text, Convert.ToDateTime(BatteryLastChanged.Text));
             MessageBox.Show("Sensor Tilføjet");
-            Close(); 
+            Close();
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void vælgSensor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
-        private void ComboBox_DropDownOpened(object sender, EventArgs e)
+        private void vælgSensor_DropDownOpened(object sender, EventArgs e)
         {
             Controller controller = new Controller();
-                controller.hentBatteryTime();
+            controller.hentBatteryTime();
 
-                foreach (DateTime BatteryLastChanged  in controller.hentBatteryTime())
+            foreach (_Sensor sensorID in controller.hentBatteryTime())
+            {
+                if (!vælgSensor.Items.Contains(sensorID))
                 {
-                    if (!BatteryLastChanged.
-                    {
-                    vælgKunde.Items.Add(kundeNavn);
+                    vælgSensor.Items.Add(sensorID);
                 }
 
+            }
         }
+
     }
 }
