@@ -43,5 +43,24 @@ namespace Project_X {
             MessageBox.Show("Sensor Tilføjet");
             Close(); 
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ComboBox_DropDownOpened(object sender, EventArgs e)
+        {
+            Controller controller = new Controller();
+                controller.hentBatteryTime();
+
+                foreach (DateTime BatteryLastChanged  in controller.hentBatteryTime())
+                {
+                    if (!BatteryLastChanged.
+                    {
+                    vælgKunde.Items.Add(kundeNavn);
+                }
+
+        }
     }
 }
