@@ -57,19 +57,20 @@ namespace Project_X
 
         }
 
-        private void vælgSensor_DropDownOpened(object sender, EventArgs e)
+       
+
+        private void batteriUdskiftet_Click(object sender, RoutedEventArgs e)
         {
             Controller controller = new Controller();
-            controller.hentBatteryTime();
+            
+            controller.tilføjSensor("", "", "", Convert.ToDateTime(BatteryLastChanged.Text));
+        }
 
-            foreach (_Sensor sensorID in controller.hentBatteryTime())
-            {
-                if (!vælgSensor.Items.Contains(sensorID))
-                {
-                    vælgSensor.Items.Add(sensorID);
-                }
-
-            }
+        private void dagensDato_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //DateTime now = DateTime.Now;
+            
+            //dagensDato.Text = DateTime.Now();
         }
 
     }

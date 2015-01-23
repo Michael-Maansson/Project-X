@@ -45,5 +45,12 @@ namespace Project_X {
             //this.Close();
             new Sensor().Show();
         }
+
+        private void tjekBatteri_Click(object sender, RoutedEventArgs e)
+        {
+            Controller controller = new Controller();
+            controller.hentBatteryTime();
+
+        }
     }
 }

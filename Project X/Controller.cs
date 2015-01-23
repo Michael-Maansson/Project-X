@@ -70,7 +70,7 @@ namespace Project_X
         }
         //public List<Battery> hentBatteryTime = new List<Battery>();
 
-        public List<_Sensor> hentBatteryTime()
+        public void hentBatteryTime()
         {
             List<_Sensor> returnBatteryTime = new List<_Sensor>();
             _Sensor hentBattery = new _Sensor();
@@ -89,8 +89,6 @@ namespace Project_X
                 
                 SqlDataReader sdr = cmd.ExecuteReader();
                 
-                
-
 
 
                 while (sdr.Read())
@@ -105,13 +103,13 @@ namespace Project_X
             }
             catch (SqlException)
             {
-
+                Console.WriteLine("FEJL");
             }
             finally
             {
             }
 
-            return returnBatteryTime;
+            
                 
             }
         }
